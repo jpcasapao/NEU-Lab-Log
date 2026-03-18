@@ -2,6 +2,8 @@
 ### New Era University — Laboratory Management System
 
 A web-based QR scan system for tracking professor laboratory usage across NEU computer rooms. Built with vanilla HTML/CSS/JS, Firebase Firestore, and Firebase Authentication.
+
+
 Deployed Live link: https://neu-lab-log-c379c.web.app/
 ---
 
