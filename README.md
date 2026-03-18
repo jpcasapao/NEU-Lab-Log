@@ -2,7 +2,7 @@
 ### New Era University — Laboratory Management System
 
 A web-based QR scan system for tracking professor laboratory usage across NEU computer rooms. Built with vanilla HTML/CSS/JS, Firebase Firestore, and Firebase Authentication.
-
+Deployed Live link: https://neu-lab-log-c379c.web.app/
 ---
 
 ## Table of Contents
@@ -317,20 +317,5 @@ On mobile the horizontal-scroll desktop table is hidden and replaced with a **ca
 
 ---
 
-## Firebase Config
-
-```javascript
-const firebaseConfig = {
-  apiKey:            "AIzaSyA5VfYAKVy8NhXON5ktxNVaC65iC3VS5YI",
-  authDomain:        "neu-lab-log-c379c.firebaseapp.com",
-  projectId:         "neu-lab-log-c379c",
-  storageBucket:     "neu-lab-log-c379c.firebasestorage.app",
-  messagingSenderId: "646272125764",
-  appId:             "1:646272125764:web:fa829e74711dcfea13e511",
-  measurementId:     "G-4VFY9S7HBZ"
-};
-```
-
----
 
 © 2026 New Era University · CICS Department · NEU Laboratory Management System v3.1
