@@ -1,0 +1,224 @@
+#pg-admin .ad-body{flex:1;max-width:1400px;width:100%;margin:0 auto;padding:32px 24px;min-width:0;overflow-x:hidden}
+.ad-tabs{display:flex;gap:0;background:var(--gl);border-radius:12px;padding:4px;margin-bottom:28px;width:fit-content;max-width:100%}
+.ad-tab{padding:9px 24px;border-radius:9px;font-size:13px;font-weight:700;color:var(--g2);background:transparent;letter-spacing:.2px}
+.ad-tab.active{background:var(--g2);color:var(--w);box-shadow:var(--sh1)}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* Stats */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:26px}
+.sc{background:var(--w);border-radius:16px;padding:20px 18px;border:2px solid var(--border);box-shadow:var(--sh1);position:relative;overflow:hidden;min-width:0}
+.sc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.sc.ga::before{background:var(--g2)}
+.sc.ra::before{background:var(--r2)}
+.sc.ta::before{background:#0d9488}
+.sc.ya::before{background:#d97706}
+.sc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+.sc-ico{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.sc-lbl{font-size:12px;color:var(--muted);font-weight:600;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sc-val{font-size:30px;font-weight:900;letter-spacing:-.5px;line-height:1;color:var(--text);white-space:nowrap}
+.sc-note{font-size:11px;color:var(--light);margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* Charts */
+.charts-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:26px}
+.cc{background:var(--w);border-radius:16px;padding:22px;border:2px solid var(--border);box-shadow:var(--sh1)}
+.cc h3{font-size:14px;font-weight:700;margin-bottom:3px}
+.cc p{font-size:12px;color:var(--muted);margin-bottom:16px}
+.cc-wrap{position:relative;height:210px}
+
+/* QR Panel */
+.qr-panel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.qr-room-card{background:var(--w);border:2px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--sh1)}
+.qrc-stripe{height:5px}
+.qrc-body{padding:20px}
+.qrc-head{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.qrc-ico{width:46px;height:46px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.qrc-name{font-size:18px;font-weight:800;letter-spacing:-.3px}
+.qrc-label{font-size:12px;color:var(--muted);font-weight:500;margin-top:1px}
+.qrc-canvas-wrap{background:var(--w);border:2px solid var(--border);border-radius:12px;padding:16px;display:flex;justify-content:center;align-items:center;margin-bottom:14px;min-height:160px}
+.qrc-canvas-wrap canvas{display:block}
+.qrc-code{text-align:center;font-size:11px;color:var(--light);font-family:'IBM Plex Mono',monospace;margin-bottom:14px}
+.btn-dl-qr{width:100%;padding:11px;background:var(--g2);color:var(--w);border-radius:10px;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn-dl-qr:hover{background:var(--g1)}
+.btn-print-qr{width:100%;padding:10px;background:var(--gll);border:2px solid var(--border);color:var(--g2);border-radius:10px;font-size:12px;font-weight:700;margin-top:8px}
+.btn-print-qr:hover{background:var(--gl)}
+
+/* Filter bar */
+.filter-bar{background:var(--w);border-radius:16px;padding:18px;border:2px solid var(--border);box-shadow:var(--sh1);margin-bottom:18px}
+.ft-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.ft-row input,.ft-row select{padding:9px 13px;border:2px solid var(--borderG);border-radius:10px;font-size:13px;color:var(--text);outline:none;background:#fafafa;transition:border-color .15s}
+.ft-row input:focus,.ft-row select:focus{border-color:var(--g3);background:var(--w)}
+.ft-row input{flex:1;min-width:200px}
+.ft-row select{min-width:140px;cursor:pointer}
+.ft-bot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:12px}
+.ft-cnt{font-size:12px;color:var(--light)}
+.ft-acts{display:flex;gap:8px}
+.btn-clr{padding:7px 14px;background:#f3f4f6;border:2px solid var(--borderG);border-radius:10px;font-size:12px;font-weight:600;color:var(--muted)}
+.btn-clr:hover{background:var(--borderG)}
+.btn-exp{padding:7px 14px;background:var(--gll);border:2px solid var(--border);border-radius:10px;font-size:12px;font-weight:700;color:var(--g2)}
+.btn-exp:hover{background:var(--gl)}
+.cr-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px}
+.cr-row input[type=date]{padding:8px 10px;border:2px solid var(--borderG);border-radius:10px;font-size:12px;min-width:140px;outline:none}
+.cr-row input[type=date]:focus{border-color:var(--g3)}
+.cr-row span{font-size:12px;color:var(--muted)}
+
+/* Table */
+.tbl-box{background:var(--w);border-radius:16px;border:2px solid var(--border);box-shadow:var(--sh1);overflow:hidden}
+.tbl-scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:680px}
+thead tr{background:var(--gll);border-bottom:2px solid var(--border)}
+th{padding:12px 18px;text-align:left;font-size:11px;font-weight:800;color:var(--g2);text-transform:uppercase;letter-spacing:.7px;white-space:nowrap;cursor:pointer}
+th:hover{color:var(--g3)}
+th .si{margin-left:4px;opacity:.35}
+th.sorted .si{opacity:1}
+tbody tr{border-bottom:1px solid var(--gll);transition:background .1s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:nth-child(even){background:#fafffe}
+tbody tr:hover{background:var(--gll)}
+td{padding:12px 18px;vertical-align:middle}
+.pcell{display:flex;align-items:center;gap:11px}
+.pav{width:34px;height:34px;border-radius:50%;background:var(--gl);color:var(--g2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
+.pav img{width:34px;height:34px;border-radius:50%;object-fit:cover}
+.pname{font-size:13px;font-weight:700;color:var(--text)}
+.pemail{font-size:11px;color:var(--muted);font-family:'IBM Plex Mono',monospace;margin-top:1px}
+.rbadge{display:inline-flex;padding:4px 11px;border-radius:20px;font-size:11px;font-weight:800;white-space:nowrap}
+.tddate{font-size:13px;white-space:nowrap}
+.tdtime{font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:500;white-space:nowrap}
+.empty-state{text-align:center;padding:60px 20px;color:var(--muted)}
+.es-ico{font-size:44px;margin-bottom:14px}
+.es-title{font-size:16px;font-weight:700;margin-bottom:5px}
+.es-sub{font-size:13px}
+.tbl-foot{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-top:2px solid var(--border);font-size:13px;color:var(--muted);flex-wrap:wrap;gap:10px}
+.pgbtns{display:flex;gap:5px}
+.pgbtn{padding:5px 12px;border:2px solid var(--borderG);border-radius:8px;font-size:12px;font-weight:700;color:var(--text);background:var(--w)}
+.pgbtn:hover:not(:disabled){border-color:var(--g3);color:var(--g2)}
+.pgbtn:disabled{opacity:.35;cursor:not-allowed;transform:none}
+.pgbtn.cur{background:var(--g2);border-color:var(--g2);color:var(--w)}
+
+/* Mobile cards */
+.mob-cards{display:none;flex-direction:column;gap:12px}
+.mob-card{background:var(--w);border-radius:14px;padding:16px;border:2px solid var(--border);box-shadow:var(--sh1)}
+.mc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.mc-meta{display:flex;gap:12px;font-size:12px;color:var(--muted);flex-wrap:wrap}
+
+/* Room Status Grid */
+.room-status-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+
+/* Professor Management */
+.prof-mgmt-add{display:flex;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.prof-mgmt-add input{flex:1;min-width:220px;padding:10px 14px;border:2px solid var(--borderG);border-radius:10px;font-size:13px;outline:none}
+.prof-mgmt-add input:focus{border-color:var(--g3)}
+.btn-add-prof{padding:10px 20px;background:var(--g2);color:#fff;border-radius:10px;font-size:13px;font-weight:700;white-space:nowrap}
+.btn-add-prof:disabled{background:#86efac;cursor:not-allowed;transform:none}
+.btn-add-prof:not(:disabled):hover{background:var(--g1)}
+.prof-list{display:flex;flex-direction:column;gap:8px}
+.prof-list-item{background:#fff;border:2px solid var(--border);border-radius:12px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+
+/* ─── ADMIN RESPONSIVE ──────────────────────────────── */
+@media(max-width:640px){
+  .ad-body{padding:12px}
+  .charts-row{grid-template-columns:1fr;gap:14px}
+  .ad-tabs{padding:4px;gap:4px;width:100%;border-radius:10px}
+  .tab-panel{padding:0}
+  .sc{padding:16px 14px}
+  .sc-val{font-size:26px}
+  .qr-panel-grid{grid-template-columns:1fr}
+  .qr-room-card{flex-direction:column}
+  .room-status-grid{grid-template-columns:1fr}
+  .occ-bottom{flex-direction:column;align-items:stretch}
+  .occ-bottom button{width:100%!important;text-align:center}
+  .prof-mgmt-add{flex-direction:column}
+  .prof-mgmt-add input{min-width:0;width:100%}
+  .btn-add-prof{width:100%}
+  .prof-list-item{flex-wrap:wrap;gap:8px}
+  .pgbtns{flex-wrap:wrap}
+  .overview-active{padding:12px}
+
+  /* ── Logs: hide desktop table, show mobile cards ── */
+  .tbl-box{display:none}
+  .mob-cards{display:flex}
+
+  /* Filter bar: stack inputs full-width */
+  .filter-bar{padding:14px}
+  .ft-row{flex-direction:column;align-items:stretch}
+  .ft-row input,.ft-row select{min-width:0;width:100%;box-sizing:border-box}
+  .ft-bot{flex-direction:column;align-items:stretch;gap:8px;margin-top:10px}
+  .ft-acts{display:flex;gap:8px}
+  .btn-clr,.btn-exp{flex:1;padding:9px;text-align:center;font-size:13px}
+
+  /* Mobile card polish */
+  .mob-card{border-radius:14px;padding:14px 16px}
+  .mc-top{align-items:flex-start;gap:10px;margin-bottom:10px}
+  .mc-meta{font-size:12px;gap:6px 14px}
+  .mob-cards .pname{font-size:14px}
+  .mob-cards .pemail{font-size:11px}
+
+  /* Pagination sits below cards */
+  .tbl-foot{display:flex;padding:12px 4px;border-top:none}
+}
+@media(max-width:480px){
+  .stats-grid{grid-template-columns:1fr!important}
+  .ad-tab{font-size:11px;padding:7px 10px}
+  .qrc-canvas-wrap canvas{max-width:100%!important;height:auto!important}
+  .tbl-foot{font-size:11px}
+  .pgbtn{padding:5px 8px;font-size:11px}
+}
+
+/* ─── PORTRAIT ORIENTATION ──────────────────────────── */
+@media(max-width:640px) and (orientation:portrait){
+  .ad-body{padding:10px}
+
+  /* Tabs: smaller text, full scrollable strip */
+  .ad-tabs{margin-bottom:14px}
+  .ad-tab{font-size:11px;padding:7px 12px}
+
+  /* Stats: 2-col in portrait (not 1-col, saves vertical space) */
+  .stats-grid{grid-template-columns:repeat(2,1fr)!important;gap:10px;margin-bottom:14px}
+  /* Charts: stack vertically so Daily Activity sits below Room Usage */
+  .charts-row{grid-template-columns:1fr!important;gap:14px}
+  .sc{padding:14px 12px;border-radius:12px}
+  .sc-val{font-size:24px}
+  .sc-lbl{font-size:10px}
+  .sc-note{font-size:10px}
+  .sc-ico{width:32px;height:32px;font-size:14px;border-radius:8px}
+  .sc-top{margin-bottom:8px}
+
+  /* Room status: 1-col compact */
+  .room-status-grid{grid-template-columns:1fr;gap:10px}
+
+  /* QR panel: 1-col, smaller canvas */
+  .qr-panel-grid{grid-template-columns:1fr;gap:12px}
+  .qrc-body{padding:14px}
+  .qrc-head{gap:10px;margin-bottom:12px}
+  .qrc-ico{width:38px;height:38px;font-size:17px;border-radius:9px}
+  .qrc-name{font-size:16px}
+  .qrc-canvas-wrap{padding:12px;min-height:120px}
+  .qrc-canvas-wrap canvas{max-width:160px!important;height:auto!important}
+
+  /* Filter bar */
+  .filter-bar{padding:12px;border-radius:12px}
+  .ft-row{flex-direction:column;align-items:stretch}
+  .ft-row input,.ft-row select{padding:8px 11px;font-size:12px;width:100%;min-width:0;box-sizing:border-box}
+  .cr-row{flex-direction:column}
+  .cr-row input[type=date]{width:100%;min-width:0}
+  .cr-row span{display:none}
+  .ft-bot{flex-direction:column;align-items:stretch;gap:8px}
+  .ft-acts{display:flex;gap:8px}
+  .btn-clr,.btn-exp{flex:1;padding:8px;text-align:center}
+
+  /* Logs: always cards on portrait mobile */
+  .tbl-box{display:none}
+  .mob-cards{display:flex}
+
+  /* Mobile log cards */
+  .mob-card{padding:12px;border-radius:12px}
+  .mc-top{flex-wrap:wrap;gap:6px}
+  .mc-meta{font-size:11px;gap:8px}
+
+  /* Prof management */
+  .prof-list-item{padding:10px 12px}
+
+  /* Pagination */
+  .tbl-foot{padding:10px 12px;font-size:11px}
+  .pgbtn{padding:5px 9px;font-size:11px}
+}

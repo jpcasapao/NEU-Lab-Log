@@ -1,0 +1,139 @@
+#pg-prof .pg-body{flex:1;max-width:900px;width:100%;margin:0 auto;padding:36px 24px}
+.prof-hero{background:var(--g2);border-radius:20px;padding:28px 32px;margin-bottom:32px;color:var(--w);display:flex;align-items:center;gap:20px;position:relative;overflow:hidden}
+.prof-hero::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.07)}
+.prof-hero::after{content:'';position:absolute;bottom:-60px;right:60px;width:140px;height:140px;border-radius:50%;background:rgba(255,255,255,.05)}
+.ph-av{width:62px;height:62px;border-radius:50%;border:3px solid rgba(255,255,255,.35);object-fit:cover;flex-shrink:0;position:relative;z-index:1}
+.ph-av-ini{width:62px;height:62px;border-radius:50%;border:3px solid rgba(255,255,255,.35);background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;flex-shrink:0;position:relative;z-index:1}
+.ph-txt h2{font-size:20px;font-weight:800;margin-bottom:4px;position:relative;z-index:1}
+.ph-txt p{font-size:13px;opacity:.75;position:relative;z-index:1}
+.ph-badge{margin-left:auto;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);padding:6px 14px;border-radius:50px;font-size:12px;font-weight:600;position:relative;z-index:1;white-space:nowrap}
+.active-session{background:var(--r2);border-radius:var(--r-lg);padding:20px 24px;margin-bottom:24px;color:var(--w);display:flex;align-items:center;gap:16px;position:relative;overflow:hidden;flex-wrap:wrap}
+.active-session::before{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.07)}
+.as-pulse{width:12px;height:12px;border-radius:50%;background:#4ade80;flex-shrink:0;animation:asPulse 2s infinite}
+.as-info{flex:1;position:relative;z-index:1;min-width:140px}
+.as-info h3{font-size:15px;font-weight:700;margin-bottom:2px}
+.as-info p{font-size:12px;opacity:.8}
+.as-timer{font-size:20px;font-weight:800;font-family:'IBM Plex Mono',monospace;position:relative;z-index:1;white-space:nowrap}
+.btn-checkout{background:var(--w);color:var(--r2);padding:11px 22px;border-radius:50px;font-size:14px;font-weight:800;white-space:nowrap;position:relative;z-index:1;flex-shrink:0}
+.btn-checkout:hover{background:var(--rl)}
+.prof-scan-section{text-align:center}
+.pss-head{font-size:22px;font-weight:800;letter-spacing:-.3px;margin-bottom:8px}
+.pss-sub{font-size:14px;color:var(--muted);margin-bottom:32px}
+.btn-big-scan{display:inline-flex;align-items:center;gap:14px;background:var(--g2);color:var(--w);padding:18px 40px;border-radius:50px;font-size:16px;font-weight:800;box-shadow:0 8px 24px rgba(22,101,52,.35);letter-spacing:.2px;position:relative;overflow:hidden}
+.btn-big-scan:hover{background:var(--g1);box-shadow:0 12px 32px rgba(22,101,52,.4);transform:translateY(-2px)}
+.scan-icon-wrap{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.recent-logs{margin-top:48px}
+.rl-head{font-size:16px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.rl-head::after{content:'';flex:1;height:1px;background:var(--border)}
+.rl-card{background:var(--w);border:2px solid var(--border);border-radius:14px;padding:14px 18px;display:flex;align-items:center;gap:14px;margin-bottom:10px;box-shadow:var(--sh1)}
+.rl-room{width:46px;height:46px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.rl-info .rl-rm{font-size:14px;font-weight:700}
+.rl-info .rl-dt{font-size:12px;color:var(--muted);font-family:'IBM Plex Mono',monospace;margin-top:2px}
+.rl-method{margin-left:auto;font-size:11px;font-weight:600;padding:4px 10px;border-radius:20px}
+.no-logs{text-align:center;padding:32px;color:var(--light);font-size:14px}
+
+/* ─── PROFESSOR ROOM STATUS ─────────────────────────── */
+.prof-room-section{margin-top:36px}
+.prs-head{margin-bottom:18px}
+.prs-title{font-size:20px;font-weight:800;letter-spacing:-.3px;margin-bottom:6px}
+.prs-sub{font-size:13px;color:var(--muted);line-height:1.5}
+.prs-free-pill{background:#dcfce7;color:#166534;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700}
+.prof-room-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+
+/* Room card base */
+.prc{background:var(--w);border-radius:16px;padding:16px;border:2px solid var(--border);box-shadow:var(--sh1);display:flex;flex-direction:column;gap:0;transition:transform .15s,box-shadow .15s}
+.prc-free{border-color:#bbf7d0}
+.prc-occ{border-color:#fecaca;background:#fffafa}
+
+/* Card top row */
+.prc-top{display:flex;align-items:center;gap:10px}
+.prc-icon-wrap{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.prc-meta{flex:1;min-width:0}
+.prc-name{font-size:14px;font-weight:800;white-space:nowrap}
+.prc-label{font-size:10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.prc-badge{font-size:10px;font-weight:700;padding:3px 8px;border-radius:20px;white-space:nowrap;flex-shrink:0}
+
+/* Free card CTA */
+.prc-cta{margin-top:12px;font-size:11px;font-weight:700;color:var(--g2);text-align:center;border-top:1px solid #d1fae5;padding-top:10px;letter-spacing:.2px}
+
+/* Occupied footer */
+.prc-footer{display:flex;align-items:center;gap:10px;margin-top:12px;padding-top:12px;border-top:1px solid #fecaca}
+.prc-av-img{width:32px;height:32px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid #fecaca}
+.prc-av-ini{width:32px;height:32px;border-radius:50%;background:#fee2e2;color:#b91c1c;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
+.prc-who{display:flex;flex-direction:column;gap:2px;min-width:0}
+.prc-prof-name{font-size:12px;font-weight:700;color:#7f1d1d;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:120px}
+.prc-since{font-size:10px;color:#b91c1c;font-family:'IBM Plex Mono',monospace}
+
+@media(max-width:600px){
+  .prof-room-grid{grid-template-columns:repeat(2,1fr)}
+  .prc-badge{display:none}
+  #pg-prof .pg-body{padding:12px}
+  .prof-hero{padding:18px 16px;gap:12px;border-radius:14px;flex-wrap:wrap}
+  .ph-av,.ph-av-ini{width:48px;height:48px;font-size:18px}
+  .ph-txt h2{font-size:16px}
+  .ph-txt p{font-size:12px}
+  .pss-head{font-size:18px}
+  .pss-sub{font-size:13px;margin-bottom:20px}
+  .btn-big-scan{padding:14px 24px;font-size:14px;gap:10px;width:100%;justify-content:center}
+  /* Active session banner stacks on mobile */
+  .active-session{padding:14px 16px;gap:10px;flex-direction:column;align-items:flex-start}
+  .as-row{display:flex;align-items:center;gap:10px;width:100%}
+  .as-timer{font-size:22px}
+  .btn-checkout{width:100%;padding:12px;font-size:14px;text-align:center}
+  /* Recent logs */
+  .rl-card{padding:12px 14px;gap:10px}
+  .rl-room{width:40px;height:40px;font-size:16px}
+  .recent-logs{margin-top:32px}
+}
+@media(max-width:400px){
+  .prof-room-grid{grid-template-columns:1fr}
+  .prc{padding:14px}
+}
+
+/* ─── PORTRAIT ORIENTATION ──────────────────────────── */
+@media(max-width:600px) and (orientation:portrait){
+  /* Body padding tighter */
+  #pg-prof .pg-body{padding:10px}
+
+  /* Hero: compact single row */
+  .prof-hero{padding:14px 14px;gap:10px;margin-bottom:16px;border-radius:12px}
+  .ph-av,.ph-av-ini{width:42px;height:42px;font-size:16px}
+  .ph-txt h2{font-size:15px;margin-bottom:2px}
+  .ph-txt p{font-size:11px}
+
+  /* Active session: tight stacked layout */
+  .active-session{padding:12px 14px;gap:8px;margin-bottom:16px;border-radius:12px}
+  .as-info h3{font-size:13px}
+  .as-info p{font-size:11px}
+  .as-timer{font-size:20px}
+  .btn-checkout{padding:11px;font-size:13px;border-radius:10px}
+
+  /* Scan section */
+  .pss-head{font-size:17px;margin-bottom:6px}
+  .pss-sub{font-size:12px;margin-bottom:16px}
+  .btn-big-scan{padding:13px 20px;font-size:13px;border-radius:14px}
+  .scan-icon-wrap{width:34px;height:34px;font-size:16px}
+
+  /* Room grid: 2 col, compact cards */
+  .prof-room-section{margin-top:20px}
+  .prs-title{font-size:16px;margin-bottom:4px}
+  .prs-sub{font-size:12px}
+  .prof-room-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .prc{padding:12px;border-radius:12px}
+  .prc-icon-wrap{width:34px;height:34px;font-size:15px;border-radius:8px}
+  .prc-name{font-size:13px}
+  .prc-label{font-size:9px}
+  .prc-cta{font-size:10px;padding-top:8px;margin-top:8px}
+  .prc-footer{padding-top:8px;margin-top:8px}
+  .prc-av-img,.prc-av-ini{width:26px;height:26px;font-size:9px}
+  .prc-prof-name{font-size:11px;max-width:90px}
+  .prc-since{font-size:9px}
+
+  /* Recent logs compact */
+  .rl-head{font-size:14px;margin-bottom:10px}
+  .rl-card{padding:10px 12px;gap:8px;border-radius:10px}
+  .rl-room{width:36px;height:36px;font-size:14px;border-radius:8px}
+  .rl-info .rl-rm{font-size:13px}
+  .rl-info .rl-dt{font-size:11px}
+  .rl-method{font-size:10px;padding:3px 8px}
+}

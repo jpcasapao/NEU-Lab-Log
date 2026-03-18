@@ -1,0 +1,116 @@
+/* TOKENS & RESET */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g1:#14532d;--g2:#166534;--g3:#16a34a;--g4:#22c55e;
+  --gl:#dcfce7;--gll:#f0fdf4;
+  --r1:#7f1d1d;--r2:#b91c1c;--r3:#dc2626;--rl:#fee2e2;--rll:#fff5f5;
+  --r-lg:16px;
+  --w:#ffffff;--bg:#f8faf8;--text:#0f1f0f;--muted:#4b5563;--light:#9ca3af;
+  --border:#d1fae5;--borderG:#e5e7eb;
+  --sh1:0 1px 4px rgba(0,0,0,.06);--sh2:0 4px 16px rgba(0,0,0,.08);
+  --sh3:0 8px 32px rgba(0,0,0,.12);--sh4:0 24px 64px rgba(0,0,0,.14);
+}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+input,select,button,textarea{font-family:inherit}
+button{cursor:pointer;border:none;transition:all .15s ease}
+button:active:not(:disabled){transform:scale(.97)}
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-thumb{background:#bbf7d0;border-radius:4px}
+.dn{display:none!important}
+
+/* ANIMATIONS */
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes scanLine{0%{top:4%}50%{top:90%}100%{top:4%}}
+@keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(14px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes ripple{from{transform:scale(0);opacity:.4}to{transform:scale(4);opacity:0}}
+@keyframes asPulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,.4)}70%{box-shadow:0 0 0 10px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+.up{animation:up .4s cubic-bezier(.22,.68,0,1.2) both}
+.u1{animation-delay:.05s}.u2{animation-delay:.10s}.u3{animation-delay:.16s}
+.u4{animation-delay:.22s}.u5{animation-delay:.28s}.u6{animation-delay:.34s}
+
+/* PAGE SYSTEM */
+.page{display:none;min-height:100vh;flex-direction:column;overflow-x:hidden}
+.page.on{display:flex}
+
+/* APP HEADER */
+.app-header{background:var(--g2);color:var(--w);padding:0 24px;height:60px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 12px rgba(22,101,52,.3);position:sticky;top:0;z-index:100}
+.app-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--r2)}
+.ah-left{display:flex;align-items:center;gap:12px}
+.ah-seal{width:36px;height:36px;border-radius:50%;background:transparent;border:none;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden}
+.ah-seal span:first-child{font-size:9px;font-weight:900;letter-spacing:-.5px;line-height:1}
+.ah-seal span:last-child{font-size:4.5px;letter-spacing:1px;opacity:.65;font-weight:700}
+.neu-seal-img{width:36px;height:36px;object-fit:contain;display:block;flex-shrink:0}
+.ah-title{font-weight:700;font-size:14px;line-height:1.25}
+.ah-sub{font-size:11px;opacity:.6;margin-top:1px}
+.ah-right{display:flex;align-items:center;gap:8px}
+.ah-user{font-size:13px;opacity:.8;max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ah-user-av{width:30px;height:30px;border-radius:50%;border:2px solid rgba(255,255,255,.3);object-fit:cover;flex-shrink:0}
+.ah-user-ini{width:30px;height:30px;border-radius:50%;border:2px solid rgba(255,255,255,.3);background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
+.btn-ah{background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.25);color:var(--w);padding:6px 16px;border-radius:50px;font-size:12px;font-weight:600}
+.btn-ah:hover{background:rgba(255,255,255,.25)}
+.btn-ah-ghost{background:transparent;border:1.5px solid rgba(255,255,255,.25);color:rgba(255,255,255,.75);padding:6px 12px;border-radius:50px;font-size:12px;font-weight:600}
+.btn-ah-ghost:hover{color:var(--w);background:rgba(255,255,255,.1)}
+
+/* TOAST */
+#toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);color:var(--w);padding:13px 22px;border-radius:50px;box-shadow:var(--sh3);font-size:14px;font-weight:700;z-index:9999;white-space:nowrap;max-width:90vw;overflow:hidden;text-overflow:ellipsis;animation:toastIn .3s ease forwards;pointer-events:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){.stats-grid{grid-template-columns:1fr 1fr}.charts-row{grid-template-columns:1fr}}
+@media(max-width:640px){
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .tbl-box{display:none}.mob-cards{display:flex}
+  .ad-body,.pg-body{padding:12px}
+  .charts-row{display:none}
+  .ft-row{flex-direction:column}
+  .ft-row input,.ft-row select{width:100%;flex:none;min-width:0}
+  .confirm-btns{flex-direction:column}
+  .ph-badge{display:none}
+  .btn-big-scan{padding:15px 28px;font-size:14px}
+  .ah-user{display:none}
+  /* Header */
+  .app-header{padding:0 12px;height:54px}
+  .ah-left{gap:8px}
+  .ah-title{font-size:12px}
+  .ah-sub{display:none}
+  .ah-right{gap:6px}
+  .btn-ah,.btn-ah-ghost{padding:5px 10px;font-size:11px}
+  /* Admin tabs scroll horizontally */
+  .ad-tabs{overflow-x:auto;-webkit-overflow-scrolling:touch;flex-wrap:nowrap;gap:6px;padding-bottom:4px;width:100%;border-radius:10px}
+  .ad-tab{white-space:nowrap;flex-shrink:0;font-size:12px;padding:8px 14px}
+  /* Modals full-screen on small phones */
+  .overlay{padding:0;align-items:flex-end}
+  .modal{max-width:100%;border-radius:24px 24px 0 0;max-height:92vh;overflow-y:auto}
+  /* Filter bar */
+  .filter-bar{padding:12px}
+  .ft-bot{flex-direction:column;align-items:stretch}
+  .ft-acts{justify-content:stretch}
+  .btn-clr,.btn-exp{flex:1;text-align:center}
+  /* CR row date inputs */
+  .cr-row{flex-direction:column;align-items:stretch}
+  .cr-row input[type=date]{width:100%;min-width:0}
+  .cr-row span{display:none}
+  /* Mobile card tweaks */
+  .mob-card{padding:14px}
+  .mc-top{flex-wrap:wrap;gap:8px}
+}
+@media(max-width:480px){
+  .stats-grid{grid-template-columns:1fr}
+  .ah-seal{width:32px;height:32px}
+  /* Toast full width on very small screens */
+  #toast{left:12px;right:12px;transform:none;text-align:center;border-radius:14px;white-space:normal;font-size:13px}
+}
+
+/* ─── PORTRAIT ORIENTATION ──────────────────────────── */
+@media(max-width:640px) and (orientation:portrait){
+  /* Header: extra compact */
+  .app-header{height:50px;padding:0 10px}
+  .ah-title{font-size:11px}
+  .ah-left{gap:6px}
+  .neu-seal-img,.ah-seal{width:30px;height:30px}
+  .btn-ah,.btn-ah-ghost{padding:5px 9px;font-size:11px}
+  .ah-user-av,.ah-user-ini{width:28px;height:28px}
+}
+@media print{body>*:not(.print-target){display:none}.print-target{display:block!important}}

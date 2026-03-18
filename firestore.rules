@@ -1,0 +1,74 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ─── HELPERS ────────────────────────────────────────────
+    function isNEU() {
+      return request.auth != null
+        && request.auth.token.email.matches('.*@neu\\.edu\\.ph');
+    }
+    function isAdmin() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/admins/$(request.auth.token.email));
+    }
+    function isOwner() {
+      return request.auth != null
+        && request.auth.uid == resource.data.professorUID;
+    }
+
+    // ─── LOGS ────────────────────────────────────────────────
+    match /logs/{id} {
+
+      // ── CREATE (professor.js → submitLog) ──────────────────
+      // Fields must match the authenticated user; status must be 'active'
+      allow create: if isNEU()
+        && request.resource.data.professorUID   == request.auth.uid
+        && request.resource.data.professorEmail == request.auth.token.email
+        && request.resource.data.status         == 'active';
+
+      // ── UPDATE ─────────────────────────────────────────────
+      // Professors (autoCheckOutActive / doCheckOut):
+      //   can only write the four checkout fields on their own log
+      // Admins (forceCheckOut):
+      //   can write anything, including forcedCheckOut + forcedBy
+      allow update: if
+        ( isOwner()
+          && request.resource.data.diff(resource.data).affectedKeys()
+              .hasOnly(['status','checkOutTime','checkOutTimestamp','durationMinutes']) )
+        || isAdmin();
+
+      // ── READ (single doc) ──────────────────────────────────
+      // Own log or admin
+      allow get: if isOwner() || isAdmin();
+
+      // ── LIST / QUERY ───────────────────────────────────────
+      // Professors need two query shapes:
+      //   1. buildQuickRoomGrid  → .where('status','==','active')
+      //      Shows all occupied rooms so professors can see availability
+      //   2. checkForActiveSession → .where('professorEmail','==',X)
+      //                               .where('status','==','active')
+      // Admins need unrestricted list access for:
+      //   startListener (overview/logs tab), startRoomStatusListener,
+      //   forceCheckOut query, profListListener
+      allow list: if isAdmin() || isNEU();
+    }
+
+    // ─── ADMINS ──────────────────────────────────────────────
+    match /admins/{email} {
+      // auth.js → checkAdmin() needs .get() for any authenticated user
+      allow read: if request.auth != null;
+      // Only an existing admin can promote/demote other admins
+      allow write: if isAdmin();
+    }
+
+    // ─── PROFESSORS ──────────────────────────────────────────
+    match /professors/{email} {
+      // auth.js → checkProfessor() needs .get()
+      // admin.js → startProfListListener needs .list()
+      allow read: if request.auth != null;
+      // admin.js → addProfessor (.set) / removeProfessor (.delete)
+      allow write: if isAdmin();
+    }
+
+  }
+}
